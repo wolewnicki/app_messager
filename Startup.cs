@@ -2,9 +2,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Npgsql.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using app_messager.Services;
 
 namespace app_messager
 {
@@ -17,6 +20,7 @@ namespace app_messager
 
         public IConfiguration Configuration { get; }
 
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -26,6 +30,9 @@ namespace app_messager
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddDbContext<MessagerDBContext>(options => 
+            options.UseNpgsql(Configuration.GetConnectionString("MessageDBContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

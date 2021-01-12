@@ -1,0 +1,15 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "postgres",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "name": "appmessager",
+            "database": "app-messager",
+            "username": "joemama",
+            "connectionTimeout": 1000
+        }
+    ]
+}

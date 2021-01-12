@@ -20,8 +20,8 @@ namespace app_messager.Controllers
         [Route("v1/app-messager/GetChannel")]
         public IActionResult ChannelData()
         {
-            using var db = _dBContext;
-            var channels = db.Channel
+            var db = _dBContext;
+            var channels = db.channel
             .Where(c => c.created_by == "nico")
             .ToList();
 

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using app_messager.Services;
+using app_messager.Hubs;
 
 namespace app_messager
 {
@@ -31,6 +32,7 @@ namespace app_messager
                 configuration.RootPath = "ClientApp/dist";
             });
 
+            services.AddSignalR();
             services.AddDbContext<MessagerDBContext>(options => 
             options.UseNpgsql(Configuration.GetConnectionString("MessageDBContext")));
         }
@@ -63,6 +65,7 @@ namespace app_messager
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
+                endpoints.MapHub<ChatHub>("/chathub");
             });
 
             app.UseSpa(spa =>

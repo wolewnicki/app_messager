@@ -11,3 +11,37 @@
   <b>{{ channel.created_date }}</b>
   <b>{{ channel.description }}</b>
 </div>
+
+<div class="container">
+  <div class="row">&nbsp;</div>
+  <div class="row">
+      <div class="col-2">User</div>
+      <div class="col-4">
+        <input type="text" [(ngModel)]='user'/>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-2">Message</div>
+      <div class="col-4">
+        <input type="text" [(ngModel)]='message'/>
+      </div>
+  </div>
+  <div class="row">&nbsp;</div>
+  <div class="row">
+      <div class="col-6">
+          <button (click)="sendMessage(user, message)">Send Message</button>
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+      <hr />
+  </div>
+</div>
+<div class="row">
+  <div class="col-6" *ngFor='let message of data'>
+      <ul>
+        {{ message.user }} says {{ message.message}}
+      </ul>
+  </div>
+</div>

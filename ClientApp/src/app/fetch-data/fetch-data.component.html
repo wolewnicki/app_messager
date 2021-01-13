@@ -1,24 +1,47 @@
-<h1 id="tableLabel">Weather forecast</h1>
+<h1 id="tableLabel">test data</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
+<button *ngIf="!channels" (click)="getData()">Click Here to display Data</button>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Temp. (C)</th>
-      <th>Temp. (F)</th>
-      <th>Summary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let forecast of forecasts">
-      <td>{{ forecast.date }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
-    </tr>
-  </tbody>
-</table>
+<button (click)="checkChannel()">Check Channel Values</button>
+
+<div *ngFor='let channel of channels'>
+  <b>{{ channel.created_by }}</b>
+  <b>{{ channel.created_date }}</b>
+  <b>{{ channel.description }}</b>
+</div>
+
+<div class="container">
+  <div class="row">&nbsp;</div>
+  <div class="row">
+      <div class="col-2">User</div>
+      <div class="col-4">
+        <input type="text" [(ngModel)]='user'/>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-2">Message</div>
+      <div class="col-4">
+        <input type="text" [(ngModel)]='message'/>
+      </div>
+  </div>
+  <div class="row">&nbsp;</div>
+  <div class="row">
+      <div class="col-6">
+          <button (click)="sendMessage(user, message)">Send Message</button>
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+      <hr />
+  </div>
+</div>
+<div class="row">
+  <div class="col-6" *ngFor='let message of data'>
+      <ul>
+        {{ message.user }} says {{ message.message}}
+      </ul>
+  </div>
+</div>

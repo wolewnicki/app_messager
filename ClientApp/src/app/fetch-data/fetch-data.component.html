@@ -2,9 +2,11 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
-<button *ngIf="!channel" (click)="getData()">Click Here to display Data</button>
+<button *ngIf="!channels" (click)="getData()">Click Here to display Data</button>
 
-<div *ngIf="channel">
+<button (click)="checkChannel()">Check Channel Values</button>
+
+<div *ngFor='let channel of channels'>
   <b>{{ channel.created_by }}</b>
   <b>{{ channel.created_date }}</b>
   <b>{{ channel.description }}</b>

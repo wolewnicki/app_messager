@@ -11,7 +11,6 @@ export class FetchDataService {
     constructor(private http: HttpClient) { }
 
     getChannel() {
-        debugger;
-        return this.http.get<ChannelModel>(this.fetchDataUrl)
+        return this.http.get<ChannelModel[]>(this.fetchDataUrl)
     }
 }

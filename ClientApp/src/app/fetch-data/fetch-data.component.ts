@@ -9,22 +9,20 @@ import { ThrowStmt } from '@angular/compiler';
   providers: [ FetchDataService ]
 })
 export class FetchDataComponent {
-  channel: ChannelModel;
+  channels: ChannelModel[];
   error: any;
 
   constructor(private fetchDataService: FetchDataService) {}
 
+  checkChannel() {
+    console.log(this.channels);
+  }
 
   getData() {
     this.fetchDataService.getChannel()
     .subscribe(
-      (data: ChannelModel) => this.channel = {
-        id: data.id,
-        created_by: data.created_by,
-        created_date: data.created_date,
-        description: data.description
-       },
-      error => this.error = error
+      (data: ChannelModel[]) => this.channels = data,
+      error => this.error = error,
     );
   }
 }

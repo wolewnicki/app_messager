@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { NgxsModule } from '@ngxs/store'
+import { AppState } from './State/app.state'
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -20,6 +22,9 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    NgxsModule.forRoot([
+      AppState
+    ]),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([

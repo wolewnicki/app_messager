@@ -1,15 +1,16 @@
 import { Injectable, OnInit } from '@angular/core';
 import * as signalR from '@microsoft/signalr';
-import { Message } from '../Models/Message';
+import { Store } from '@ngxs/store';
+import { AddMessage } from '../Actions/app.actions';
+import { Message } from '../Models/app.models';
 
 @Injectable()
 export class SignalRService {
 
 
-    constructor() { }
+    constructor(public store: Store ) { }
 
     public connection : signalR.HubConnection
-    public data: Message[]
 
     createConnection() {
         this.connection = new signalR.HubConnectionBuilder()
@@ -27,9 +28,10 @@ export class SignalRService {
     addListener() {
         this.connection
             .on('RecieveMessage', (message: string, user: string) => {
-                let messageCombined = {message: message, user: user}
-                this.data.push(messageCombined)
-                console.log(messageCombined)
+                this.store.dispatch(new AddMessage({
+                    user: user,
+                    message: message
+                }))
             })
     }
 

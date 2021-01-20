@@ -39,7 +39,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-6" *ngFor='let message of data'>
+  <div class="col-6" *ngFor='let message of currentState.currentMessages'>
       <ul>
         {{ message.user }} says {{ message.message}}
       </ul>

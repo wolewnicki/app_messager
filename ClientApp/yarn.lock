@@ -332,6 +332,13 @@
   resolved "https://registry.yarnpkg.com/@nguniversal/module-map-ngfactory-loader/-/module-map-ngfactory-loader-8.0.0-rc.1.tgz#ca82a170fe72057b2379a55147580803c951319e"
   integrity sha512-dPac8uahg4XHSvrXP0/XkU/LaFhAHJ8N9h93ttXfrEXNMukarOmbyKzAuX9DVjcE6+lll1UCZtsEweRvQBZPbw==
 
+"@ngxs/store@^3.7.1":
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-3.7.1.tgz#3333379eb36cfe475d019b6c894b263ea515b8a5"
+  integrity sha512-Qg4rkF8XoIg/E2SGUfBbr4JmR8ZbRfeg1X++fF0HJymK1PtbIxtEXQXm7VTH0+GSmYDCwPJb8Im9dZHGZWF5ww==
+  dependencies:
+    tslib "^1.9.0"
+
 "@schematics/angular@8.0.6":
   version "8.0.6"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-8.0.6.tgz#13b81ac1130396dc9676f8119e9d10cc7f615237"

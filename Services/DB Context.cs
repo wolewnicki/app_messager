@@ -6,6 +6,7 @@ namespace app_messager.Services{
     public class MessagerDBContext : DbContext 
     {
         public DbSet<Channel> channel { get; set; }
+        public DbSet<Message> message { get; set; }
         public MessagerDBContext(DbContextOptions<MessagerDBContext> options)
             : base(options)
         {        

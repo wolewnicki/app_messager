@@ -19,8 +19,6 @@ export class FetchDataComponent implements OnInit {
 
   channels: ChannelModel[];
   error: any;
-  user: string;
-  message: string;
   currentState: AppStateModel
 
   constructor(private fetchDataService: FetchDataService, 

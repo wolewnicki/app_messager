@@ -36,8 +36,10 @@ export class SignalRService {
     }
 
     sendMessage(message: string, user: string) {
+        debugger
         this.connection
             .invoke('SendMessage', user, message)
+            .then(() => this.store.dispatch(new AddMessage({user, message})))
             .then(() => console.log("Sent Message"))
             .catch(err => console.log(err))
     }

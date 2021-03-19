@@ -7,6 +7,13 @@ namespace app_messager.Services{
     {
         public DbSet<Channel> channel { get; set; }
         public DbSet<Message> message { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder){
+            modelBuilder.Entity<Message>()
+            .HasNoKey();
+
+            base.OnModelCreating(modelBuilder);
+        }
+
         public MessagerDBContext(DbContextOptions<MessagerDBContext> options)
             : base(options)
         {        

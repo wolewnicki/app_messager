@@ -17,19 +17,19 @@
   <div class="row">
       <div class="col-2">User</div>
       <div class="col-4">
-        <input type="text" [(ngModel)]='user'/>
+        <input type="text" #userInput />
       </div>
   </div>
   <div class="row">
       <div class="col-2">Message</div>
       <div class="col-4">
-        <input type="text" [(ngModel)]='message'/>
+        <input type="text" #messageInput/>
       </div>
   </div>
   <div class="row">&nbsp;</div>
   <div class="row">
       <div class="col-6">
-          <button (click)="sendMessage(user, message)">Send Message</button>
+          <button (click)="sendMessage(userInput.value, messageInput.value)">Send Message</button>
       </div>
   </div>
 </div>
